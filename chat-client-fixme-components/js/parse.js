@@ -17,15 +17,13 @@ var Parse = {
     });
   },
 
-  post: function(message, callback = ()=>{}) {
+  post: function(message, successCB) {
     $.ajax({
       type: 'POST',
       url: Parse.server,
       data: JSON.stringify(message),
       contentType: 'application/json',
-      success: (data) => {
-        console.log('Success!', data);
-      },
+      success: successCB,
       error: (status) => {
         console.error('chatterbox: Failed to create message', status);
       }

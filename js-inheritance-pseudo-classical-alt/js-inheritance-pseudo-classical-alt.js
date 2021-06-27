@@ -12,7 +12,18 @@
 // DO NOT MODIFY FUNCTIONS 'makeHorse' AND 'makeFlyingHorse'
 // USE THE CONSTRUCTOR FUNCTIONS LOCATED AT THE END OF THIS FILE
 
-var makeHorse = function(name) {
+var Horse = function(name) {
+  this.name = name;
+};
+
+
+var FlyingHorse = function(name, color) {
+  this.name = name;
+  this.color = color;
+};
+
+
+Horse.prototype.makeHorse = function(name) {
   var result = {};
   result.name = name;
   result.goSomewhere = function(destination) {
@@ -21,7 +32,7 @@ var makeHorse = function(name) {
   return result;
 };
 
-var makeFlyingHorse = function(name, color) {
+FlyingHorse.prototype.makeFlyingHorse = function(name, color) {
   var result = makeHorse(name);
   result.color = color;
   var oldGoSomewhere = result.goSomewhere;
@@ -39,12 +50,8 @@ var makeFlyingHorse = function(name, color) {
 // Here's some starter code to get you going!
 // Do not use the ES6 `class` keyword; use ES5 to create your classes.
 
-var Horse = function(name) {
-};
 
 
-
-var FlyingHorse = function(name, color) {
-};
-
+var myHorse = new Horse();
+var myFlyingHorse = new FlyingHorse();
 
